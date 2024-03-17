@@ -20,8 +20,8 @@
             class="navbar-brand me-auto">Главная</a>
             <form action="/search"
                 method="GET">
-                <input name="query" id="query" class="form-control">
-                <input type="submit" class="btn btn-success" value="поиск">
+                <input name="query" id="query" class="form-control" placeholder="Поиск товара">
+
                </form>
             @guest
 
