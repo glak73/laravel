@@ -17,7 +17,7 @@
             <h1 class="my-3 text-center">Было найдено:</h1>
 
         </div>
-        @foreach ($context as $product)
+        @forelse ($context as $product)
             <tr>
                 <td>
                     <h4>название товара - {{ $product->name }}</h4>
@@ -34,7 +34,12 @@
                 </td>
 
             </tr>
-        @endforeach
+        @empty
+        <p>
+            поиск ничего не дал(
+        </p>
+        <a href="{{route('index')}}">вернуться на главную</a>
+        @endforelse
     @endsection('content')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
