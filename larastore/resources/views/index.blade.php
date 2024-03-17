@@ -22,19 +22,20 @@
                 <td>
                     <h4>название товара - {{ $product->name }}</h4>
                 </td>
-                <td>категория - {{ $product->category->title}}</td>
-                <td>Номер категории - {{ $product->category->id}}</td>
+                <td>категория - {{ $product->category->title }}</td>
+                <td>Номер категории - {{ $product->category->id }}</td>
                 <td>
                     <p>
-                        айди пользователя - {{$product->user_id}}
+                        айди пользователя - {{ $product->user_id }}
                     </p>
-                    <p><b>текст описания</b> - {{Storage::get($product->file_name)}}</p>
-                    <a href="{{route('product.show', ['product' => $product->slug])}}"> подробнее...</a>
-                    <p>{{$product->slug}}</p>
+                    <p><b>текст описания</b> - {{ Storage::get($product->file_name) }}</p>
+                    <a href="{{ route('product.show', ['product' => $product->slug]) }}"> подробнее...</a>
+                    <p>{{ $product->slug }}</p>
                 </td>
 
             </tr>
         @endforeach
+        {{ $products->links('vendor.pagination.bootstrap-4') }}
     @endsection('content')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

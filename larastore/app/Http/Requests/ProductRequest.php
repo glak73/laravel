@@ -27,4 +27,12 @@ class ProductRequest extends FormRequest
             'body' => 'required'
         ];
     }
+    public function attributes(): array
+    {
+        return [
+            'name' => 'название товара',
+            'category'=> 'категория',
+            'body'=> 'описание товара'
+        ];
+    }
 }

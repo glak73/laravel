@@ -23,10 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', ['product' => Auth::user()->product()->latest()->get()]);
+        return view('home', ['product' => Auth::user()->product()->latest()->paginate(10)]);
     }
     public function archive()
     {
-        return view('archive', ['product' => Auth::user()->product()->onlyTrashed()->latest()->get()]);
+        return view('archive', ['product' => Auth::user()->product()->onlyTrashed()->latest()->paginate(10)]);
     }
 }
