@@ -40,10 +40,9 @@ class ProductTest extends TestCase
     public function test_product_cannot_be_created_with_invalid_data()
     {
         $this->expectException(QueryException::class);
-        $product = Product::factory()->make([
+        $product = Product::factory()->create([
             'name' => '', // Неверные данные
         ]);
-        $product->save();
 
     }
 }
