@@ -38,6 +38,19 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="admin_password" class="col-md-4 col-form-label text-md-end">{{ __('password for admin abilities') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="admin_password" type="text" class="form-control @error('admin_password') is-invalid @enderror" name="admin_password" value="{{ old('admin_password') }}">
+
+                                @error('admin_password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>

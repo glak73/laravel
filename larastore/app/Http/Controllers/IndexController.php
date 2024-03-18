@@ -11,6 +11,6 @@ class IndexController extends Controller
 {
     public function index() {
         //Storage::get();
-        return response()->view("index", ['products'=> Product::latest()->paginate(15)]);
+        return response()->view("index", ['products'=> Product::latest()->orderBy('id')->cursorPaginate()]);
     }
 }

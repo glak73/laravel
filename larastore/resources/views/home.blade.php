@@ -20,6 +20,7 @@
                             <a href="{{ route('archive') }}">корзина</a>
                         </p>
                         {{ __('You are logged in!') }}
+                       <p> админ ли я - {{Auth::user()->is_admin}} </p>
                     </div>
                     <div>
                         @foreach ($product as $product_item)

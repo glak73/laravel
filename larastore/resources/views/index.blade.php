@@ -17,6 +17,7 @@
             <h1 class="my-3 text-center">все товары</h1>
 
         </div>
+        {{ $products->links() }}
         @foreach ($products as $product)
             <tr>
                 <td>
@@ -35,7 +36,7 @@
 
             </tr>
         @endforeach
-        {{ $products->links('vendor.pagination.bootstrap-4') }}
+
     @endsection('content')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
