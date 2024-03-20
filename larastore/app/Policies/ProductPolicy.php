@@ -29,7 +29,7 @@ class ProductPolicy
      */
     public function create(User $user): bool
     {
-        return $user->is_admin === true;
+        return $user->is_admin === true or $user->is_creator === true;
     }
 
     /**

@@ -21,6 +21,7 @@
                         </p>
                         {{ __('You are logged in!') }}
                        <p> админ ли я - {{Auth::user()->is_admin}} </p>
+                       <p> создатель ли я - {{Auth::user()->is_creator}} </p>
                     </div>
                     <div>
                         @foreach ($product as $product_item)
@@ -29,9 +30,6 @@
                                     <h4>{{ $product_item->name }}</h4>
                                 </td>
 
-                                {{-- <td>
-                                        <a href="{{route('detail', ['book' => $bb->id])}}">Подробнее...</a>
-                                    </td> --}}
                                 <td>
                                     <a
                                         href="{{ route('product.edit', ['product' => $product_item->slug]) }}">редактировать</a>
