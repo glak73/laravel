@@ -26,7 +26,11 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-    public function username() {
+    protected $maxAttempts = 2;
+    protected $delayMinutes = 10;
+
+    public function username()
+    {
         return 'name';
     }
     /**
