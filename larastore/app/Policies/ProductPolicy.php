@@ -6,6 +6,7 @@ use Illuminate\Auth\Access\Response;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+
 class ProductPolicy
 {
     /**
@@ -21,7 +22,7 @@ class ProductPolicy
      */
     public function view(User $user, Product $product)
     {
-        //
+        return true;
     }
 
     /**
@@ -45,8 +46,16 @@ class ProductPolicy
      */
     public function delete(User $user, Product $product): bool
     {
-        return $user->id === $product->user_id || $user->is_admin;
+
+        if ($user->id == $product->user_id) {
+            return true;
+        } elseif ($user->is_admin) {
+            return true;
+        } else {
+            return false;
+        }
     }
+
 
     /**
      * Determine whether the user can restore the model.

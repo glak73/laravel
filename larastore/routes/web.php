@@ -23,6 +23,7 @@ Route::middleware(["ProductMiddleware"])->group(
     }
 );
 Route::patch('product/restore/{product}', [ProductController::class, 'restore'])->withTrashed()->name('restore');
+Route::delete('product/delete/{product}', [ProductController::class, 'delete'])->withTrashed()->name('product.delete');
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::resource('product', ProductController::class)

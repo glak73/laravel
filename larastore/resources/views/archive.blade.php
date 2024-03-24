@@ -25,7 +25,7 @@
                                     <h4>{{ $product_item->name }}</h4>
                                 </td>
                                 <td>
-                                    <form action="{{ route('product.destroy', ['product' => $product_item]) }}"
+                                    <form action="{{ route('product.delete', ['product' => $product_item]) }}"
                                         method="POST">
                                         @csrf
                                         @method('DELETE')
