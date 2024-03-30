@@ -14,14 +14,14 @@
                             </div>
                         @endif
                         <p>
-                            <a href="{{ route('product.create') }}">добавить товар</a>
+                            {{ html()->a(route('product.create'), 'добавить товар') }}
                         </p>
                         <p>
-                            <a href="{{ route('archive') }}">корзина</a>
+                            {{ html()->a(route('archive'), 'корзина') }}
                         </p>
                         {{ __('You are logged in!') }}
-                       <p> админ ли я - {{Auth::user()->is_admin}} </p>
-                       <p> создатель ли я - {{Auth::user()->is_creator}} </p>
+                        <p> админ ли я - {{ Auth::user()->is_admin }} </p>
+                        <p> создатель ли я - {{ Auth::user()->is_creator }} </p>
                     </div>
                     <div>
                         @foreach ($product as $product_item)
@@ -31,16 +31,16 @@
                                 </td>
 
                                 <td>
-                                    <a
-                                        href="{{ route('product.edit', ['product' => $product_item->slug]) }}">редактировать</a>
+                                    {{ html()->form('GET', route('product.edit', ['product' => $product_item->slug]))->open() }}
+                                    @csrf
+                                    {{ html()->submit('редактировать', ['class' => 'btn btn-danger']) }}
+                                    {{ html()->form()->close() }}
                                 </td>
                                 <td>
-                                    <form action="{{ route('product.destroy', ['product' => $product_item->slug]) }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input type="submit" class="btn btn-danger" value="Удалить">
-                                    </form>
+                                    {{ html()->form('DELETE', route('product.destroy', ['product' => $product_item->slug]))->open() }}
+                                    @csrf
+                                    {{ html()->submit('Удалить', ['class' => 'btn btn-danger']) }}
+                                    {{ html()->form()->close() }}
                                 </td>
                             </tr>
                         @endforeach

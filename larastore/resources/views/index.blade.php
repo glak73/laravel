@@ -16,31 +16,25 @@
         @section('content')
             <h1 class="my-3 text-center">все товары</h1>
 
-        </div>
-        {{ $products->links() }}
-        @foreach ($products as $product)
-            <tr>
-                <td>
-                    <h4>название товара - {{ $product->name }}</h4>
-                </td>
-                <td>категория - {{ $product->category->title }}</td>
-                <td>Номер категории - {{ $product->category->id }}</td>
-                <td>
-                    <p>
-                        айди пользователя - {{ $product->user_id }}
-                    </p>
-                    <p><b>текст описания</b> - {{ Storage::get($product->file_name) }}</p>
-                    <a href="{{ route('product.show', ['product' => $product->slug]) }}"> подробнее...</a>
-                    <p>{{ $product->slug }}</p>
-                </td>
+            {{ $products->links() }}
+            @foreach ($products as $product)
+                <tr>
+                    <td>
+                        {{Element::withTag('h4')->text('название товара - ' . $product->name);}}
+                        {{ html()->p()->text('название категории категории - ' . $product->category->title) }}
+                        {{ html()->p()->text('айди категории - ' . $product->category->id) }}
+                        {{ html()->p()->text('айди пользователя - ' . $product->user_id) }}
+                        {{ html()->p()->text('текст описания - ' . Storage::get($product->file_name)) }}
+                        {{ html()->a()->href(route('product.show', ['product' => $product->slug]))->text('подробнее...') }}
+                    </td>
+                </tr>
+            @endforeach
 
-            </tr>
-        @endforeach
-
-    @endsection('content')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        @endsection('content')
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+    </div>
 </body>
 
 </html>

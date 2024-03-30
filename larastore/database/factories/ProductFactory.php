@@ -17,8 +17,8 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            "created_at" => $this->faker->unixTime($max = 'now'),
-            "name" => $this->faker->name(),
+            "created_at" => $this->faker->dateTimeBetween('-2 months', 'now'),
+            "name" => $this->faker->words(3, true),
             "file_name" => $this->faker->sentence(2),
             "category_id" => $this->faker->numberBetween(1,4),
             "user_id" => $this->faker->numberBetween(1,4),
