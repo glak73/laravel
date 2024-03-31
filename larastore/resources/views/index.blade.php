@@ -15,12 +15,11 @@
         @section('title', 'Главная')
         @section('content')
             <h1 class="my-3 text-center">все товары</h1>
-
             {{ $products->links() }}
             @foreach ($products as $product)
                 <tr>
                     <td>
-                        {{Element::withTag('h4')->text('название товара - ' . $product->name);}}
+                        {{Element::withTag('h4')->text('название товара - ' . $product->name)}}
                         {{ html()->p()->text('название категории категории - ' . $product->category->title) }}
                         {{ html()->p()->text('айди категории - ' . $product->category->id) }}
                         {{ html()->p()->text('айди пользователя - ' . $product->user_id) }}

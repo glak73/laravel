@@ -169,6 +169,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Spatie\Html\HtmlServiceProvider::class,
+        Genert\BBCode\BBCodeServiceProvider::class,
+        Mews\Captcha\CaptchaServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -185,7 +187,9 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Html' => Spatie\Html\Facades\Html::class,
-        'Element' =>Spatie\Html\Elements\Element::class
+        'Element' =>Spatie\Html\Elements\Element::class,
+        'BBCode' => Genert\BBCode\Facades\BBCode::class,
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
     ])->toArray(),
 
 ];

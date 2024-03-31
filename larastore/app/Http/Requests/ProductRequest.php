@@ -24,7 +24,9 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'required|unique:products|max:50',
             'category' => 'max:50',
-            'body' => 'required'
+            'body' => 'required',
+            'captcha' => 'required|captcha',
+
         ];
     }
     public function attributes(): array
@@ -32,7 +34,8 @@ class ProductRequest extends FormRequest
         return [
             'name' => 'название товара',
             'category'=> 'категория',
-            'body'=> 'описание товара'
+            'body'=> 'описание товара',
+            'captcha' => 'капча',
         ];
     }
 }
