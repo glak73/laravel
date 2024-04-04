@@ -26,6 +26,7 @@ class ProductRequest extends FormRequest
             'category' => 'max:50',
             'body' => 'required',
             'captcha' => 'required|captcha',
+            'product_avatar' => 'required',
 
         ];
     }
@@ -36,6 +37,7 @@ class ProductRequest extends FormRequest
             'category'=> 'категория',
             'body'=> 'описание товара',
             'captcha' => 'капча',
+            'product_avatar' => 'изображение товара',
         ];
     }
 }

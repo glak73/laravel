@@ -1,0 +1,30 @@
+.product-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Стили для изображения товара */
+.product-image {
+    max-height: 500px;
+    width: auto;
+    margin-right: 20px;
+}
+
+/* Стили для списка состояний */
+.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Стили для ссылки на главную страницу */
+.back-link {
+    margin-top: 10px;
+}
+

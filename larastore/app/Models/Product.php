@@ -33,7 +33,7 @@ class Product extends Model
     {
         return 'slug';
     }
-    protected $fillable = ['name', 'file_name', 'category_id'];
+    protected $fillable = ['name', 'file_name', 'category_id', 'product_avatar'];
     public function user()
     {
         return $this->belongsTo(User::class);

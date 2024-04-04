@@ -45,14 +45,17 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-
+        $path = $request->file('product_avatar')->store('product_avatars');
+        //$url = Storage::url($path);
         $category = Category::firstOrCreate(['title' => $request->category]);
         $file_name = md5(time() . mt_rand()) . '.txt';
-        Storage::disk('local')->put($file_name, $request['body']);
+        Storage::disk('public')->put('product_description/' . $file_name, $request['body']);
+        $description_path = 'product_description/' . $file_name;
         Auth::user()->product()->create([
             'name' => $request['name'],
             'category_id' => $category->id,
-            'file_name' => $file_name
+            'file_name' => $description_path,
+            'product_avatar' => $path //$url,
         ]);
 
         return redirect()->route('home');
@@ -64,7 +67,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $file_content = Storage::get($product->file_name);
+        $file_path = storage_path('app/public/' . $product->file_name);
+        $file_content = file_get_contents($file_path);
         return view('product.detail', ['product' => $product, 'content' => $file_content]);
     }
 

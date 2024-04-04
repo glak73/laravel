@@ -10,7 +10,7 @@
             </ul>
         </div>
     @endif
-    {{ Html::form('POST', route('product.store'))->open() }}
+    {{ Html::form('POST', route('product.store'))->acceptsFiles()->open() }}
     <div class="mb-3">
         {{ Html::label('Название', 'txtName')->for('txtName') }}
         {{ Html::text('name')->id('txtName')->class('form-control') }}
@@ -28,9 +28,12 @@
         <div>
             {{ Html::label('captcha', 'captcha')->for('captcha') }}
             <div><input name="captcha" class="form-control"></div>
-{{--            {{ html()->input('captcha')->class('form-control') }}--}}
         </div>
     </div>
+    </div>
+    <div class="mb-3">
+        {{ Html::label('изображение товара', 'txtBody')->for('product_avatar') }}
+    {{ html()->file('product_avatar')->class('form-control')}}
     </div>
     {{ Html::submit('Добавить')->class('btn btn-primary') }}
     {{ Html::form()->close() }}

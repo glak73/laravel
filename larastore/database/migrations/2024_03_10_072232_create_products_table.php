@@ -21,6 +21,7 @@ return new class extends Migration {
                 ->onDelete('cascade');
             $table->softDeletes(); // Этот метод должен быть вызван внутри функции Blueprint
             $table->string('slug');
+            $table->string('product_avatar', 100);
         });
     }
 
