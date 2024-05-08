@@ -8,7 +8,7 @@
 {{--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"--}}
 {{--          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">--}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <title>@yield('title') :: Объявление</title>
+    <title>@yield('title')ъуъ</title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
                class="navbar-brand me-auto">Главная</a>
             <form action="/search"
                   method="GET">
-                <input name="query" id="query" class="form-control" placeholder="Поиск товара">
+                <input name="query" id="query" class="form-control" placeholder="Поиск статьи">
 
             </form>
             @guest
@@ -33,7 +33,7 @@
             @endguest
             @auth
                 <a href="{{ route('home') }}"
-                   class="nav-item nav-link">Мои товары</a>
+                   class="nav-item nav-link">Мои статьи</a>
                 <form action="{{ route('logout') }}" method="POST"
                       class="form-inline">
                     @csrf

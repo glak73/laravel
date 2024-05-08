@@ -54,8 +54,6 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Password::defaults()],
-            'admin_password' => [new IsAdmin],
-            'creator_password' => [new IsCreator],
         ]);
     }
 
@@ -71,8 +69,6 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'is_admin'=> (bool) $data['admin_password'],
-            'is_creator'=> (bool) $data['creator_password'],
         ]);
     }
 }

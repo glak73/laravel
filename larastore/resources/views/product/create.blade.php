@@ -16,7 +16,7 @@
         {{ Html::text('name')->id('txtName')->class('form-control') }}
     </div>
     <div class="mb-3">
-        {{ Html::label('описание товара', 'txtBody')->for('txtBody') }}
+        {{ Html::label('текст статьи', 'txtBody')->for('txtBody') }}
         {{ Html::textarea('body')->id('txtBody')->class('form-control')->rows(3) }}
     </div>
     <div class="mb-3">

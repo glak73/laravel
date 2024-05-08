@@ -21,7 +21,7 @@
     </div>
 
     <div class="mb-3">
-        {{ html()->label('Описание товара')->for('body') }}
+        {{ html()->label('текст статьи')->for('body') }}
         {{ html()->textarea('body')->class('form-control')->rows(3)->value(Storage::get($product->file_name)) }}
     </div>
 

@@ -19,13 +19,13 @@
 @forelse ($context as $product)
     <tr>
         <td>
-            {{Element::withTag('h4')->text('Название товара - ' . $product->name)}}
+            {{Element::withTag('h4')->text('Название статьи - ' . $product->name)}}
         </td>
         <td>
             {{Element::withTag('p')->text('Название категории - ' . $product->category->title)}}
         </td>
         <td>
-            {!!Element::withTag('p')->text(BBCode::convertTohtml('ID продавца- ' . $product->user_id))!!}
+            {!!Element::withTag('p')->text(BBCode::convertTohtml('ID автора - ' . $product->user_id))!!}
         </td>
 
         <td>

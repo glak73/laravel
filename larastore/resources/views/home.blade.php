@@ -14,14 +14,20 @@
                             </div>
                         @endif
                         <p>
-                            {{ html()->a(route('product.create'), 'добавить товар') }}
+                            {{ html()->a(route('product.create'), 'добавить статью') }}
                         </p>
                         <p>
                             {{ html()->a(route('archive'), 'корзина') }}
                         </p>
                         {{ __('You are logged in!') }}
-                        <p> админ ли я - {{ Auth::user()->is_admin }} </p>
-                        <p> создатель ли я - {{ Auth::user()->is_creator }} </p>
+                        @if (Auth::user()->is_admin or Auth::user()->is_creator)
+                        {{html()->p('is admin - ' . Auth::user()->is_admin)}}
+                        {{html()->p('is creator - ' . Auth::user()->is_creator)}}
+                        @endif
+
+{{--
+                        <p> is admin {{ Auth::user()->is_admin }} </p>
+                        <p> is creator {{ Auth::user()->is_creator }} </p> --}}
                     </div>
                     <div>
                         @foreach ($product as $product_item)

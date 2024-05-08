@@ -45,8 +45,17 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $path = $request->file('product_avatar')->store('product_avatars');
-        //$url = Storage::url($path);
+        // Получаем оригинальное имя файла
+        $originalName = $request->file('product_avatar')->getClientOriginalName();
+
+        // Сохраняем файл в директорию 'product_avatars' с его оригинальным именем
+        // $path = $request->file('product_avatar')->storeAs('product_avatars', $originalName, 'public');
+        $file = $request->file('product_avatar');
+        $originalExtension = $file->getClientOriginalExtension();
+        $newName = uniqid() . '.' . $originalExtension;
+        $path = $file->storeAs('product_avatars', $newName, 'public');
+
+        // Создаем или получаем категорию
         $category = Category::firstOrCreate(['title' => $request->category]);
         $file_name = md5(time() . mt_rand()) . '.txt';
         Storage::disk('public')->put('product_description/' . $file_name, $request['body']);
@@ -55,12 +64,12 @@ class ProductController extends Controller
             'name' => $request['name'],
             'category_id' => $category->id,
             'file_name' => $description_path,
-            'product_avatar' => $path //$url,
+            'product_avatar' => $path
         ]);
 
         return redirect()->route('home');
-
     }
+
 
     /**
      * Display the specified resource.
